@@ -105,12 +105,17 @@ The server will start running at [http://localhost:5000](http://localhost:5000)
 
 The API endpoints are documented.Here’s how to access it:
 
+## Configuration
+
+Environment-specific configurations are set in `.env` file. This file is not available.
+
+Create a new `.env` file, you may add the following variable the `DATABASE_URL` and `PORT` values.
 
 ## Dependencies
 
 - [Express.js](https://expressjs.com/) is a fast, minimalist web framework for Node.js that simplifies building APIs and web applications.
 - [Dotenv](https://www.npmjs.com/package/dotenv) is a Node.js package that loads environment variables from a .env file into process.env for secure configuration management.
-
+- [pg](https://www.npmjs.com/package/pg) is a PostgreSQL client for Node.js that enables seamless interaction with PostgreSQL databases using JavaScript.
 
 # Project Resources
 
