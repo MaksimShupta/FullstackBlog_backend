@@ -43,17 +43,6 @@ npm run dev
 
 The server will start running at [http://localhost:5000](http://localhost:5000)
 
-### Database
-
-- Set up a PostgreSQL database, remember you can do it locally or in Neon
-- Create a posts table with at least the following fields, feel free to add more if needed
-- **id:** (Primary key, auto-incrementing integer.)
-- **author:** (Text field for the post author, can’t be NULL.)
-- **title:** (Text field for the post title , can’t be NULL.)
-- **content:** (Text field for the post content, can’t be NULL.)
-- **cover:** (Text field for the image cover, can’t be NULL.)
-- **date** (Date field, defaults to the creation time.)
-
 ### Backend
 
 - Set up a Node.js server using the built-in http module.
@@ -110,6 +99,23 @@ The API endpoints are documented.Here’s how to access it:
 Environment-specific configurations are set in `.env` file. This file is not available.
 
 Create a new `.env` file, you may add the following variable the `DATABASE_URL` and `PORT` values.
+
+## Database
+
+We use [Neon](https://console.neon.tech/) with postgresql.
+
+Set the following queries in [Neon](https://console.neon.tech/).
+
+- CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  author VARCHAR(255) NOT NULL,
+  title VARCHAR(510) NOT NULL,
+  content VARCHAR(510) NOT NULL,
+  cover VARCHAR(510) NOT NULL,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
+
+- DROP TABLE IF EXISTS posts;
 
 ## Dependencies
 
