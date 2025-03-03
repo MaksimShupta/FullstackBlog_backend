@@ -1,13 +1,55 @@
-# Fullstack Blog
+# Fiction Addicts /Book Blog Management API Server
 
-Backend
+This project is a Node.js Express API server designed for managing book posts.
+
+### Contributions
+
+- [Julia](https://github.com/juliabaur)
+- [Anne](https://github.com/AnneMerlyn)
+- [Maksim](https://github.com/MaksimShupta)
+- [Andrei](https://github.com/raizy21)
+
+are maintainers for this repository.
+
+## Prerequisites
+
+Before running this server, ensure you have the following installed:
+
+- [nodejs](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git@github.com:MaksimShupta/FullstackBlog_backend.git
+   cd FullstackBlog_backend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+## Running the Server
+
+To start the server, run the following command:
+
+```bash
+npm run dev
+```
+
+The server will start running at [http://localhost:5000](http://localhost:5000)
 
 ### Database
 
 - Set up a PostgreSQL database, remember you can do it locally or in Neon
 - Create a posts table with at least the following fields, feel free to add more if needed
 - **id:** (Primary key, auto-incrementing integer.)
-- **author:** (title: Text field for the post title, can’t be NULL.)
+- **author:** (Text field for the post author, can’t be NULL.)
+- **title:** (Text field for the post title , can’t be NULL.)
 - **content:** (Text field for the post content, can’t be NULL.)
 - **cover:** (Text field for the image cover, can’t be NULL.)
 - **date** (Date field, defaults to the creation time.)
@@ -59,14 +101,14 @@ Backend
 
 ##### Response: A success message or the deleted post as a JSON object.
 
-### Contributions
+## API Documentation
 
-- [Julia](https://github.com/juliabaur)
-- [Anne](https://github.com/AnneMerlyn)
-- [Maksim](https://github.com/MaksimShupta)
-- [Andrei](https://github.com/raizy21)
+The API endpoints are documented.Here’s how to access it:
 
-are maintainers for this repository.
+
+## Dependencies
+
+- [Express.js](https://expressjs.com/) is a fast, minimalist web framework for Node.js that simplifies building APIs and web applications.
 
 # Project Resources
 
