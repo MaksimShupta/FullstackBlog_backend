@@ -109,6 +109,8 @@ The API endpoints are documented.Here’s how to access it:
 ## Dependencies
 
 - [Express.js](https://expressjs.com/) is a fast, minimalist web framework for Node.js that simplifies building APIs and web applications.
+- [Dotenv](https://www.npmjs.com/package/dotenv) is a Node.js package that loads environment variables from a .env file into process.env for secure configuration management.
+
 
 # Project Resources
 
