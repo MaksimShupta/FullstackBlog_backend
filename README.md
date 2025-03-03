@@ -45,8 +45,7 @@ The server will start running at [http://localhost:5000](http://localhost:5000)
 
 ### Backend
 
-- Set up a Node.js server using the built-in http module.
-- Use the pg package to connect to your PostgreSQL database.
+
 - Create the following endpoints for the posts resource:
 - **GET /posts:** Retrieve all posts.
 - **GET /posts/:id** Retrieve a single post by ID.
@@ -116,6 +115,15 @@ Set the following queries in [Neon](https://console.neon.tech/).
   );
 
 - DROP TABLE IF EXISTS posts;
+
+## Backend
+
+- Set up a Node.js server using the built-in http module in package.json.
+  `"type": "module",`
+
+- The pg package connect your PostgreSQL database.
+  Variable db , create new instance Pool. Poll coming from pg.
+  - db test database connection on startup. Print `"connected db"` if client is connected or `"error db", err.message` if connection do not work.
 
 ## Dependencies
 
