@@ -105,14 +105,17 @@ We use [Neon](https://console.neon.tech/) with postgresql.
 
 Set the following queries in [Neon](https://console.neon.tech/).
 
-- CREATE TABLE posts (
-  id SERIAL PRIMARY KEY,
-  author VARCHAR(255) NOT NULL,
-  title VARCHAR(510) NOT NULL,
-  content VARCHAR(510) NOT NULL,
-  cover VARCHAR(510) NOT NULL,
-  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  );
+- CREATE TABLE IF NOT EXISTS posts (
+    id SERIAL PRIMARY KEY,
+    author VARCHAR(255) NOT NULL,
+    title VARCHAR(510) NOT NULL,
+    content VARCHAR(510) NOT NULL,
+    cover VARCHAR(510) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createAT TIMESTAMP WITH TIME ZONE NOT NULL,
+    updatedAT TIMESTAMP WITH TIME ZONE NOT NULL
+)
 
 - DROP TABLE IF EXISTS posts;
 
