@@ -17,9 +17,9 @@ app.use(
 ); // middleware cors setup
 app.use(express.json()); // middleware for JSON parsing
 
-// app.get("/", (req, res) => {
-//     res.send("hello world from nodejs!!!!!");
-// }); //msg from nodejs
+app.get("/", (req, res) => {
+    res.send("hello world from nodejs!!!!!");
+}); //msg from nodejs
 
 app.use("/api", postRoutes); // api routes
 
