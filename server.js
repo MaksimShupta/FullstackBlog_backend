@@ -1,6 +1,8 @@
 import express from "express"; // import express
 import dotenv from "dotenv"; // import dotenv
 import pg from "pg"; //  client for node
+import cors from "cors"; // import cors
+import postRoutes from "./routes/posts.js"; // import post routes
 
 dotenv.config(); // load environment variables
 
@@ -11,9 +13,14 @@ const db = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
+app.use(cors()); // middleware cors setup
+app.use(express.json()); // middleware for JSON parsing
+
 app.get("/", (req, res) => {
   res.send("hello world from nodejs!!!!!");
 }); //msg from nodejs
+
+app.use("/api", postRoutes); // api routes
 
 // test database connection on startup
 db.connect()
