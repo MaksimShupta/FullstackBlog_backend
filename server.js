@@ -8,7 +8,6 @@ dotenv.config(); // load environment variables
 // create a new pool instance
 const app = express(); // create an express app
 const PORT = process.env.PORT || 5001; // port setup
-
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:3000",
@@ -25,4 +24,4 @@ app.use("/api", postRoutes); // api routes
 
 app.listen(PORT, () =>
   console.log(`server running on port ${PORT} http://localhost:${PORT}/`)
-); // server port 5000
+); // server port 5001
