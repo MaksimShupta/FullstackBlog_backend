@@ -1,10 +1,10 @@
 import express from "express"; // import express
 import {
-    getAllPosts,
-    createPost,
-    updatePost,
-    deletePost,
-    getAPost,
+  getAllPosts,
+  createPost,
+  updatePost,
+  deletePost,
+  getAPost,
 } from "../controllers/postsController.js"; // import controllers
 
 const router = express.Router(); // create a router
