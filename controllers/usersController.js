@@ -26,3 +26,25 @@ export const getUser = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+export const createUser = async (req, res) => {
+  try {
+    const { email, password, fullname } = req.body;
+    const result = await db.query(
+      "INSERT INTO users (email, password, fullname) VALUES ($1, $2, $3)",
+      [email, password, fullname]
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(404).send("User was not created !");
+    }
+
+    const user = result.rows[0];
+
+    res.setHeader("Content-Type", "application/json");
+    res.json({ id: user.id, email: user.email, fullname: user.fullname });
+  } catch (error) {
+    console.error("Error by user creating:", error.message);
+    res.status(500).send("Server Error");
+  }
+};

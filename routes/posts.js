@@ -6,7 +6,7 @@ import {
   deletePost,
   getAPost,
 } from "../controllers/postsController.js"; // import controllers
-import { getUser } from "../controllers/usersController.js";
+import { getUser, createUser } from "../controllers/usersController.js";
 
 const router = express.Router(); // create a router
 
@@ -16,5 +16,6 @@ router.put("/posts/:id", updatePost);
 router.delete("/posts/:id", deletePost);
 router.get("/posts/:id", getAPost);
 router.post("/users/", getUser);
+router.post("/user", createUser);
 // export router
 export default router;
