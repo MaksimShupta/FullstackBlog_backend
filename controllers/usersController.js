@@ -5,13 +5,14 @@ export const getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await db.query(
-      "SELECT * FROM users WHERE email = $1 password=$2",
+      "SELECT * FROM users WHERE email = $1 AND password = $2",
       [email, password]
     );
 
     if (result.rows.length === 0) {
-      return res.status(404).send("User not found");
+      return res.status(404).send("User not found or invalid credentials");
     }
+
     const user = result.rows[0];
     // Compare hashed password
     /*const isMatch = await bcrypt.compare(password, user.password);
@@ -19,7 +20,7 @@ export const getUser = async (req, res) => {
       return res.status(401).send("Invalid credentials");
     }*/
     res.setHeader("Content-Type", "application/json");
-    res.json({ id: user.id, email: user.email }); //???
+    res.json({ id: user.id, email: user.email });
   } catch (error) {
     console.error("Error fetching post:", error.message);
     res.status(500).send("Server Error");
