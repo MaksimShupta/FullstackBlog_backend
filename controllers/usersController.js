@@ -21,7 +21,7 @@ export const getUser = async (req, res) => {
       return res.status(401).send("Invalid credentials");
     }
     res.setHeader("Content-Type", "application/json");
-    res.json({ id: user.id, email: user.email });
+    res.json({ id: user.id, email: user.email }); //???
   } catch (error) {
     console.error("Error fetching post:", error.message);
     res.status(500).send("Server Error");
