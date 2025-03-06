@@ -5,6 +5,7 @@ import {
   updatePost,
   deletePost,
   getAPost,
+  getUser,
 } from "../controllers/postsController.js"; // import controllers
 import { getUser } from "../controllers/usersController.js";
 
