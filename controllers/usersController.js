@@ -1,7 +1,10 @@
 import { db } from "../services/db.js";
 import bcrypt from "bcryptjs";
 
-export const getUser = async (req, res) => {
+const app = express();
+app.use(express.json());
+
+const getUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const result = await db.query("SELECT * FROM users WHERE email = $1", [
@@ -24,3 +27,9 @@ export const getUser = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+app.post("/api/users", getUser);
+
+// Start server
+app.listen(5001, () => {
+  console.log("Server running on port 5001");
+});
