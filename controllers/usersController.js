@@ -31,7 +31,7 @@ export const createUser = async (req, res) => {
   try {
     const { email, password, fullname } = req.body;
     const result = await db.query(
-      "INSERT INTO users (email, password, fullname) VALUES ($1, $2, $3)",
+      "INSERT INTO users (email, password, fullname) VALUES ($1, $2, $3) RETURNING id, email, fullname",
       [email, password, fullname]
     );
 
