@@ -36,13 +36,15 @@ export const createUser = async (req, res) => {
     );
 
     if (result.rows.length === 0) {
-      return res.status(404).send("User was not created !");
+      return res.status(404).send("User not created !");
     }
 
     const user = result.rows[0];
 
-    res.setHeader("Content-Type", "application/json");
-    res.json({ id: user.id, email: user.email, fullname: user.fullname });
+    //res.setHeader("Content-Type", "application/json");
+    res
+      .status(201)
+      .json({ id: user.id, email: user.email, fullname: user.fullname });
   } catch (error) {
     console.error("Error by user creating:", error.message);
     res.status(500).send("Server Error");
