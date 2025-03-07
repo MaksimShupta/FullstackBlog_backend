@@ -16,6 +16,6 @@ router.put("/posts/:id", updatePost);
 router.delete("/posts/:id", deletePost);
 router.get("/posts/:id", getAPost);
 router.post("/users/", getUser);
-router.post("/api/users", createUser);
+router.post("/users", createUser);
 // export router
 export default router;
