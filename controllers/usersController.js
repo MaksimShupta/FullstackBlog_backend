@@ -31,7 +31,7 @@ export const createUser = async (req, res) => {
   try {
     const { email, password, fullname } = req.body;
     const result = await db.query(
-      "INSERT INTO users (email, password, fullname) VALUES ($1, $2, $3) RETURNING id, email, fullname",
+      "INSERT INTO users (email, password, fullname) VALUES ($1, $2, $3)",
       [email, password, fullname]
     );
 
@@ -41,10 +41,8 @@ export const createUser = async (req, res) => {
 
     const user = result.rows[0];
 
-    //res.setHeader("Content-Type", "application/json");
-    res
-      .status(201)
-      .json({ id: user.id, email: user.email, fullname: user.fullname });
+    res.setHeader("Content-Type", "application/json");
+    res.json({ id: user.id, email: user.email, fullname: user.fullname });
   } catch (error) {
     console.error("Error by user creating:", error.message);
     res.status(500).send("Server Error");
